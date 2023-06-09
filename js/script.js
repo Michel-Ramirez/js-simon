@@ -4,6 +4,11 @@ console.log('JS ok')
 const counter = document.getElementById('counter');
 const numbers = document.getElementById('numbers');
 const result = document.getElementById('result');
+const firstInput = document.getElementById('first-input');
+const secondInput = document.getElementById('second-input');
+const thirdInput = document.getElementById('third-input');
+const fourdInput = document.getElementById('fourd-input');
+const buttonInput = document.getElementById('btn-send');
 
 function getRandomNumbers (maxNumber){
 
@@ -23,7 +28,23 @@ function getRandomNumbers (maxNumber){
     return randomNumbers;
 }
 
+function getInputUsernumbers (){
+
+    const userNumbers = [];
+
+    firstInput.push(userNumbers);
+    secondInput.push(userNumbers);
+    thirdInput.push(userNumbers);
+    fourdInput.push(userNumbers);
+
+    return userNumbers;
+}
+
+
+
+
 let timer = 5;
+numbers.innerHTML = getRandomNumbers(4).join(" ");
 
 const reverse = setInterval(function(){
     const countDown = --timer
@@ -31,9 +52,13 @@ const reverse = setInterval(function(){
 
     if (countDown === 0){
         clearInterval(reverse);
-        numbers.classList.remove('d-none')
-        numbers.innerHTML = getRandomNumbers(5);
+        numbers.classList.add('d-none')
     }
 
 }, 1000)
 
+buttonInput.addEventListener('click', function (){
+
+   const userNumbers = getInputUsernumbers();
+
+});
