@@ -19,12 +19,20 @@
             <div id="counter">0</div>
             <div id="numbers"></div>
             <div id="result" class="d-none"></div>
-            <div class="input-section pt-5">
+            <div id="input-section" class="pt-5 d-none">
+                <p class="text-center mb-3"><b>Inserisci i numeri che ricordi</b></p>
                 <input type="number" min="1" max="100" id="first-input">
                 <input type="number" min="1" max="100" id="second-input">
                 <input type="number" min="1" max="100" id="third-input">
-                <input type="number" min="1" max="100" id="fourd-input">
+                <input type="number" min="1" max="100" id="fourth-input">
+                <input type="number" min="1" max="100" id="fifth-input">
                 <button class="btn btn-success d-block mt-5" id="btn-send">Invia</button>
+            </div>
+            <div id="score-section" class="text-center d-none">
+                <p>Hai indovinato:<span id="score" class="text-green"></span>numeri</p>
+                <p>Questi sono i numeri indovinati:<span id="found-numbers" class="text-red"></span></p>  
+                    
+                
             </div>
         </div>
     </div>

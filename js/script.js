@@ -7,9 +7,17 @@ const numbers = document.getElementById('numbers');
 const result = document.getElementById('result');
 const firstInput = document.getElementById('first-input');
 const secondInput = document.getElementById('second-input');
-const thirdInput = document.getElementById('third-input');
-const fourthInput = document.getElementById('fourd-input');
+const thirthInput = document.getElementById('third-input');
+const fourthInput = document.getElementById('fourth-input');
+const fifthInput = document.getElementById('fifth-input') 
 const buttonInput = document.getElementById('btn-send');
+const inputSection = document.getElementById('input-section');
+const scoreSection = document.getElementById('score-section');
+const score = document.getElementById('score');
+const numbersFoundbyUser = document.getElementById('found-numbers');
+
+
+
 
 /******* | FUNCTIONS | *******/
 
@@ -37,17 +45,17 @@ function getInputUserNumbers (){
 
     userNumbers.push(parseInt(firstInput.value));
     userNumbers.push(parseInt(secondInput.value));
-    userNumbers.push(parseInt(thirdInput.value));
+    userNumbers.push(parseInt(thirthInput.value));
     userNumbers.push(parseInt(fourthInput.value));
-
+    userNumbers.push(parseInt(fifthInput.value));
     return userNumbers;
 }
 
 
 /******* | COUNTDOWN | *******/
 
-let timer = 5;
-randomNumbers = getRandomNumbers(4)
+let timer = 30;
+randomNumbers = getRandomNumbers(5)
 numbers.innerHTML = randomNumbers.join(" ");
 
 console.log(randomNumbers)
@@ -58,10 +66,12 @@ const reverse = setInterval(function(){
 
     if (countDown === 0){
         clearInterval(reverse);
-        numbers.classList.add('d-none')
+        numbers.classList.add('d-none');
+        inputSection.classList.remove('d-none');
+        counter.classList.add('d-none')
     }
-
 }, 1000)
+
 
 /******* | BUTTON INPUT USER NUMBERS | *******/
 
@@ -69,16 +79,21 @@ buttonInput.addEventListener('click', function (){
 
     const userNumbers = getInputUserNumbers();
     
+    let foundNumbers = [];
+    
     for (let i = 0 ; i < randomNumbers.length; i++){
-        
-        foundNumbers = [];
 
-        if (userNumbers.includes(randomNumbers)){
-            foundNumbers.push(userNumbers);
+        if (userNumbers.includes(randomNumbers[i])){
+            foundNumbers.push(randomNumbers[i]);
         }
     
-        console.log(foundNumbers)
     }
+    
+    inputSection.classList.add('d-none');
+    scoreSection.classList.remove('d-none')
 
+    score.innerText = ' ' + foundNumbers.length + ' '
+    numbersFoundbyUser.innerText = ' ' + foundNumbers.join(' ');
+    // .innerText = foundNumbers.length;
 
 });
