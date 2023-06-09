@@ -15,12 +15,17 @@
 </head>
 <body>
     <div class="container">
-        <div class="wrapper vh-100 d-flex flex-column align-items-center justify-content-center">
-            <div id="counter">0</div>
+        <div id="start" class="vh-100 d-flex flex-column align-items-center justify-content-center">
+            <h1>MEMORY</h1>
+            <p>clicca su start per giocare</p>
+            <button class="btn btn-primary" id="start-game">START</button>
+        </div>
+        <div id="wrapper" class="vh-100 d-flex flex-column align-items-center justify-content-center d-none">
+            <div id="counter"></div>
             <div id="numbers"></div>
             <div id="result" class="d-none"></div>
             <div id="input-section" class="pt-5 d-none">
-                <p class="text-center mb-3"><b>Inserisci i numeri che ricordi</b></p>
+                <p class="text-center mb-3"><b>Inserisci i numeri che ricordi da 1 a 100</b></p>
                 <input type="number" min="1" max="100" id="first-input">
                 <input type="number" min="1" max="100" id="second-input">
                 <input type="number" min="1" max="100" id="third-input">
@@ -31,8 +36,6 @@
             <div id="score-section" class="text-center d-none">
                 <p>Hai indovinato:<span id="score" class="text-green"></span>numeri</p>
                 <p>Questi sono i numeri indovinati:<span id="found-numbers" class="text-red"></span></p>  
-                    
-                
             </div>
         </div>
     </div>

@@ -1,5 +1,10 @@
 /* STYLE */
 
+
+#start {
+    margin: 0 auto;
+}
+
 #counter {
     font-size: 4rem;
 }

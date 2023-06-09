@@ -2,6 +2,9 @@ console.log('JS ok')
 
 /******* | DOM'S ELEMENT | *******/
 
+const startSection = document.getElementById('start');
+const btnStart = document.getElementById('start-game');
+const logicGame = document.getElementById('wrapper');
 const counter = document.getElementById('counter');
 const numbers = document.getElementById('numbers');
 const result = document.getElementById('result');
@@ -51,49 +54,55 @@ function getInputUserNumbers (){
     return userNumbers;
 }
 
+btnStart.addEventListener('click', function (){
 
-/******* | COUNTDOWN | *******/
+    startSection.classList.add('d-none');
+    logicGame.classList.remove('d-none');
 
-let timer = 30;
-randomNumbers = getRandomNumbers(5)
-numbers.innerHTML = randomNumbers.join(" ");
-
-console.log(randomNumbers)
-
-const reverse = setInterval(function(){
-    const countDown = --timer
-    counter.innerHTML = countDown
-
-    if (countDown === 0){
-        clearInterval(reverse);
-        numbers.classList.add('d-none');
-        inputSection.classList.remove('d-none');
-        counter.classList.add('d-none')
-    }
-}, 1000)
-
-
-/******* | BUTTON INPUT USER NUMBERS | *******/
-
-buttonInput.addEventListener('click', function (){
-
-    const userNumbers = getInputUserNumbers();
+    /******* | COUNTDOWN | *******/
     
-    let foundNumbers = [];
+    let timer = 30;
+    randomNumbers = getRandomNumbers(5);
+    numbers.innerHTML = randomNumbers.join(" ");
     
-    for (let i = 0 ; i < randomNumbers.length; i++){
-
-        if (userNumbers.includes(randomNumbers[i])){
-            foundNumbers.push(randomNumbers[i]);
+    console.log(randomNumbers)
+    
+    const reverse = setInterval(function(){
+        const countDown = --timer
+        counter.innerHTML = countDown
+    
+        if (countDown === 0){
+            clearInterval(reverse);
+            numbers.classList.add('d-none');
+            inputSection.classList.remove('d-none');
+            counter.classList.add('d-none')
         }
+    }, 1000)
     
-    }
     
-    inputSection.classList.add('d-none');
-    scoreSection.classList.remove('d-none')
-
-    score.innerText = ' ' + foundNumbers.length + ' '
-    numbersFoundbyUser.innerText = ' ' + foundNumbers.join(' ');
-    // .innerText = foundNumbers.length;
+    /******* | BUTTON INPUT USER NUMBERS | *******/
+    
+    buttonInput.addEventListener('click', function (){
+    
+        const userNumbers = getInputUserNumbers();
+        
+        let foundNumbers = [];
+        
+        for (let i = 0 ; i < randomNumbers.length; i++){
+    
+            if (userNumbers.includes(randomNumbers[i])){
+                foundNumbers.push(randomNumbers[i]);
+            }
+        
+        }
+        
+        inputSection.classList.add('d-none');
+        scoreSection.classList.remove('d-none')
+    
+        score.innerText = ' ' + foundNumbers.length + ' '
+        numbersFoundbyUser.innerText = ' ' + foundNumbers.join(' ');
+        // .innerText = foundNumbers.length;
+    
+    });
 
 });
